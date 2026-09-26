@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 40px 20px;
+    color: #1f2937;
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #4f46e5;
+    font-weight: 700;
+}
+
+/* Input Section */
+.form {
+    display: grid;
+    grid-template-columns: 1fr 150px auto;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    outline: none;
+    font-size: 16px;
+    background: #f9fafb;
+    transition: 0.3s ease;
+}
+
+input:focus {
+    border-color: #6366f1;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+input::placeholder {
+    color: #9ca3af;
+}
+
+/* Add Button */
+#addButton {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#addButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+}
+
+#addButton:active {
+    transform: translateY(0);
+}
+
+/* Total Section */
+h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    background: linear-gradient(135deg,
+            #eef2ff,
+            #e0e7ff);
+    color: #3730a3;
+    font-size: 22px;
+}
+
+#total {
+    font-size: 28px;
+    font-weight: 700;
+    color: #4f46e5;
+}
+
+/* Expense List */
+#expenseList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Expense Item */
+.expense {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px 18px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s ease;
+}
+
+.expense:hover {
+    transform: translateX(4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-color: #c7d2fe;
+}
+
+.expense span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #374151;
+}
+
+/* Delete Button */
+.delete {
+    border: none;
+    padding: 9px 14px;
+    border-radius: 9px;
+    background: #fee2e2;
+    color: #dc2626;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.delete:hover {
+    background: #dc2626;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Empty List */
+#expenseList:empty::after {
+    content: "No expenses added yet.";
+    display: block;
+    text-align: center;
+    padding: 30px;
+    color: #9ca3af;
+    font-size: 15px;
+}
+
+/* Mobile Design */
+@media (max-width: 650px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .container {
+        padding: 25px 18px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+        margin-bottom: 25px;
+    }
+
+    .form {
+        grid-template-columns: 1fr;
+    }
+
+    #addButton {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    #total {
+        font-size: 24px;
+    }
+
+    .expense {
+        padding: 14px;
+    }
+
+    .expense span {
+        font-size: 14px;
+    }
+
+    .delete {
+        padding: 8px 11px;
+        font-size: 13px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 400px) {
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+
+    .expense {
+        gap: 10px;
+    }
+}
