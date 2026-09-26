@@ -3,22 +3,73 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Money & Contact Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Expense Tracker</h1>
-        <div class="form">
-            <input type="text" id="nameInput" placeholder="Expense name">
-            <input type="number" id="amountInput" placeholder="Amount">
-            <button id="addButton">Add Expense</button>
+        <h1>Money Tracker</h1>
+
+        <!-- Dashboard Summary -->
+        <div class="summary-cards">
+            <div class="card net-balance">
+                <span class="label">Net Balance</span>
+                <span class="amount">₹<span id="netBalance">0</span></span>
+            </div>
+            <div class="sub-cards">
+                <div class="card income">
+                    <span class="label">Income</span>
+                    <span class="amount">+₹<span id="totalIncome">0</span></span>
+                </div>
+                <div class="card expense">
+                    <span class="label">Expense</span>
+                    <span class="amount">-₹<span id="totalExpense">0</span></span>
+                </div>
+                <div class="card borrow">
+                    <span class="label">To Return</span>
+                    <span class="amount">₹<span id="totalBorrow">0</span></span>
+                </div>
+                <div class="card lend">
+                    <span class="label">To Receive</span>
+                    <span class="amount">₹<span id="totalLend">0</span></span>
+                </div>
+            </div>
         </div>
-        <h2>Total: ₹<span id="total">0</span></h2>
+
+        <!-- Add Transaction Form -->
+        <div class="form">
+            <div class="form-row">
+                <select id="typeInput">
+                    <option value="expense">Expense (Paid out)</option>
+                    <option value="income">Income (Received)</option>
+                    <option value="borrow">Borrowed (Must return to member)</option>
+                    <option value="lend">Lent (Member must return to me)</option>
+                </select>
+                <input type="number" id="amountInput" placeholder="Amount (₹)" inputmode="decimal">
+            </div>
+
+            <div class="form-row">
+                <input type="text" id="nameInput" placeholder="Description / Purpose (e.g. Lunch)">
+            </div>
+
+            <div class="form-row member-row">
+                <input type="text" id="memberInput" placeholder="Member Name">
+                <input type="tel" id="phoneInput" placeholder="Phone Number">
+                <button type="button" id="pickContactBtn" title="Choose from mobile contacts">📇 Pick Contact</button>
+            </div>
+
+            <button id="addButton">Add Transaction</button>
+        </div>
+
+        <!-- Transaction List -->
+        <div class="list-header">
+            <h3>Recent Transactions</h3>
+        </div>
         <ul id="expenseList"></ul>
     </div>
+
     <script src="script.js"></script>
 </body>
 
